@@ -1,0 +1,23 @@
+<div class="uppercase text-blue-100 text-sm mb-5 min-xl:float-left">bets type</div>
+<!--<ia-tabs (selected)="onSelectTab($event)"-->
+<!--         [selectedTab]="selectedTab" [tabs]="tabs"-->
+<!--         class="flex mb-6 justify-end"/>-->
+
+<div class="flex justify-center">
+  <div class="flex mb-5 max-xl:mb-3 min-xl:-ml-18">
+    <ng-container *ngFor="let bet of titleValues">
+      <div
+        *ngIf="bet.value !== undefined"
+        class="flex flex-col items-center px-3 border-solid border-blue-10 border-r cursor-pointer last:border-none"
+      >
+        <div class="leading-6 text-xl font-medium">{{ bet.value | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+        <div class="flex items-center">
+          <span class="text-xs leading-6">{{ bet.title }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div class="flex justify-center">
+  <ia-doughnut-chart [chartData]="chartData" [doughnutChartData]="doughnutChartData" class="block mt-6" />
+</div>

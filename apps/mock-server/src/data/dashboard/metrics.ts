@@ -1,0 +1,151 @@
+export const metrics = [
+  {
+    id: 4,
+    name: 'Sign Ups',
+    value: 66,
+    compareValue: 71,
+    type: 0,
+    description:
+      'ARPU is calculated by dividing the total revenue generated in a given period by the number of users during the same period. It provides a straightforward metric to gauge how much each user, on average, is worth in terms of revenue. \n' +
+      '\n' +
+      'ARPU = GGR of the selected period / total number of active users within selected period. Active user is the user with at least one bet during selected period.',
+  },
+  {
+    id: 15,
+    name: 'Returns',
+    value: 149,
+    compareValue: 198,
+    type: 0,
+    description:
+      'The number of the users who Logged in in the web site during a given period – total number of users who registered during a given period ',
+  },
+  {
+    id: 8,
+    name: 'Visitors',
+    value: 215,
+    compareValue: 269,
+    type: 0,
+  },
+  {
+    id: 9,
+    name: 'Bets Amount',
+    value: 1965.47,
+    compareValue: 706.06,
+    type: 1,
+  },
+  {
+    id: 13,
+    name: 'Max Bet',
+    value: 184,
+    compareValue: 80,
+    type: 1,
+  },
+  {
+    id: 12,
+    name: 'Max Win',
+    value: 2728.74,
+    compareValue: 333.52,
+    type: 1,
+  },
+  {
+    id: 2,
+    name: 'GGR',
+    value: -3204.56,
+    compareValue: -208.81,
+    type: 1,
+  },
+  {
+    id: 11,
+    name: 'Bonuses Amount',
+    value: 0,
+    compareValue: 37.28,
+    type: 1,
+  },
+  {
+    id: 14,
+    name: 'CashOut',
+    value: 9.01,
+    compareValue: 23.95,
+    type: 1,
+  },
+  {
+    id: 10,
+    name: 'Deposit Amount',
+    value: 1504.6,
+    compareValue: 1434,
+    type: 1,
+  },
+  {
+    id: 3,
+    name: 'FDR',
+    value: 72.73,
+    compareValue: 38.03,
+    type: 2,
+  },
+  {
+    id: 5,
+    name: 'Player Dormancy Rate',
+    value: 72.73,
+    compareValue: 38.03,
+    type: 2,
+  },
+  {
+    id: 6,
+    name: 'First Deposit Drop Off (FDDO)',
+    value: 125,
+    compareValue: 159.26,
+    type: 2,
+  },
+  {
+    id: 7,
+    name: 'Churn Rate',
+    value: 125,
+    compareValue: 159.26,
+    type: 2,
+  },
+  {
+    id: 1,
+    name: 'ARPU',
+    value: -162.62,
+    compareValue: -645.53,
+    type: 1,
+  },
+];
+
+export const todayMetrics = [
+  { id: 4, name: 'Sign Ups', value: 0.0, type: 0 },
+  {
+    id: 15,
+    name: 'Returns',
+    value: 4.0,
+    type: 0,
+  },
+  { id: 8, name: 'Visitors', value: 4.0, type: 0 },
+  {
+    id: 9,
+    name: 'Bets Amount',
+    value: 0.0,
+    type: 1,
+  },
+  { id: 13, name: 'Max Bet', value: 0.0, type: 1 },
+  {
+    id: 12,
+    name: 'Max Win',
+    value: 0.0,
+    type: 1,
+  },
+  { id: 2, name: 'GGR', value: 0.0, type: 1 },
+  {
+    id: 11,
+    name: 'Bonuses Amount',
+    value: 0.0,
+    type: 1,
+  },
+  { id: 14, name: 'CashOut', value: 0.0, type: 1 },
+  {
+    id: 10,
+    name: 'Deposit Amount',
+    value: 179.6,
+    type: 1,
+  },
+];

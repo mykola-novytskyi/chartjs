@@ -1,0 +1,29 @@
+<div class="uppercase text-blue-100 text-sm">Bets</div>
+
+<div class="flex mb-6 justify-end">
+  <ia-tabs (selected)="onSelectTab($event)" [selectedTab]="selectedTab" [tabs]="tabs" class="w-full min-xl:w-75" />
+</div>
+<div class="flex justify-center mb-5 max-xl:mb-3 max-xs:flex-wrap">
+  <div
+    (click)="onToggleLegend(index)"
+    *ngFor="let type of labelColors; let index = index"
+    class="flex flex-col max-xs:border-none items-center px-7 border-solid border-blue-10 border-r cursor-pointer last:border-none"
+  >
+    <div class="flex items-center">
+      <div [style.background-color]="type.color" class="w-2 h-2 rounded-sm mr-2"></div>
+      <span [class.line-through]="hiddenLines()[index]">{{ type.label }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="flex max-xl:flex-col">
+  <div class="relative w-full h-125 max-xl:h-75">
+    <ia-line-chart
+      [entities]="entities"
+      [hiddenLines]="hiddenLines()"
+      [currency]="selectedTab === 1 ? 'USD' : ''"
+      [labelColors]="labelColors"
+      class="w-full h-full block"
+    />
+  </div>
+</div>

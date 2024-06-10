@@ -1,0 +1,22 @@
+<div class="uppercase text-blue-100 text-sm max-xl:pb-6 pb-10">Deposits and withdrawals</div>
+
+<div class="flex justify-center">
+  <div class="w-90">
+    <div class="flex mb-5 max-xl:mb-3">
+      <div
+        (click)="onToggleLegend(index)"
+        *ngFor="let money of barValues; let index = index"
+        class="flex flex-col items-center px-7 border-solid border-blue-10 border-r cursor-pointer last:border-none"
+      >
+        <div class="leading-6 text-xl font-medium">{{ money.value | currency }}</div>
+        <div class="flex items-center">
+          <div [style.background-color]="money.color" class="w-2 h-2 rounded-sm mr-2"></div>
+          <span [class.line-through]="hiddenBarLegends()[index]">{{ money.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="relative w-full h-125 max-xl:h-75 min-xl:px-25">
+  <canvas [data]="barChartData" [options]="barChartOptions" [type]="'bar'" baseChart> </canvas>
+</div>

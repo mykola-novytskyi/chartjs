@@ -1,0 +1,80 @@
+<div class="uppercase text-blue-100 text-sm mb-5 min-xl:float-left">bets</div>
+
+<div class="flex mb-6 justify-end">
+  <ia-tabs
+    (selected)="onSelectTab($event)"
+    [selectedTab]="selectedTab"
+    [tabs]="tabs"
+    class="w-full min-xl:w-75 min-2xl:w-96"
+  />
+</div>
+
+<div class="min-xl:flex items-center">
+  <div class="flex max-xl:justify-center">
+    <div class="flex">
+      <div class="w-90">
+        <div class="grid grid-cols-2 mb-5 max-xl:mb-3">
+          <div
+            (click)="onToggleLegend(BetDataSetPosition.Lost)"
+            class="flex flex-col items-center border-solid border-blue-10 border-r cursor-pointer"
+          >
+            <div class="leading-6 text-xl font-medium">{{ bet.Lost | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-green-40 rounded-sm mr-1.5"></div>
+              <span [class.line-through]="hiddenLegends()[BetDataSetPosition.Lost]" class="text-xs leading-6"
+                >Lost by Customer</span
+              >
+            </div>
+          </div>
+          <div (click)="onToggleLegend(BetDataSetPosition.Won)" class="flex flex-col items-center cursor-pointer">
+            <div class="leading-6 text-xl font-medium">{{ bet.Won | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-red-30 rounded-sm mr-1.5"></div>
+              <span [class.line-through]="hiddenLegends()[BetDataSetPosition.Won]" class="text-xs leading-6"
+                >Won by Customer</span
+              >
+            </div>
+          </div>
+        </div>
+        <hr class="border-blue-10 w-full" />
+        <div class="grid grid-cols-2 mt-6 max-xl:mt-3">
+          <div
+            (click)="onToggleLegend(BetDataSetPosition.Profit)"
+            class="flex flex-col items-center border-solid border-blue-10 border-r cursor-pointer"
+          >
+            <div class="leading-6 text-xl font-medium">{{ bet.Profit | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-green-90 rounded-sm mr-1.5"></div>
+              <span [class.line-through]="hiddenLegends()[BetDataSetPosition.Profit]" class="text-xs leading-6"
+                >Profit by Company</span
+              >
+            </div>
+          </div>
+          <div (click)="onToggleLegend(BetDataSetPosition.Loss)" class="flex flex-col items-center cursor-pointer">
+            <div class="leading-6 text-xl font-medium">{{ bet.Loss | currency : 'USD' : 'symbol' : '1.0-2' }}</div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-red-80 rounded-sm mr-1.5"></div>
+              <span [class.line-through]="hiddenLegends()[BetDataSetPosition.Loss]" class="text-xs leading-6"
+                >Loss by Company</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="localBarChartData.datasets.length"
+    class="flex relative max-xl:w-full min-xl:w-[calc(100%-22.5rem)] min-xl:pl-20 max-xl:h-75 h-125"
+  >
+    <canvas
+      [data]="localBarChartData"
+      [legend]="false"
+      [options]="barChartOptions"
+      [type]="'bar'"
+      baseChart
+      class="mt-6"
+    >
+    </canvas>
+  </div>
+</div>

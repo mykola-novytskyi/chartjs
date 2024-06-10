@@ -1,0 +1,27 @@
+<mat-icon
+  *ngIf="METRIC_DESCRIPTION[metric.id]"
+  [matMenuTriggerFor]="menu"
+  class="absolute right-0 top-0 !text-xl cursor-pointer"
+>
+  info
+</mat-icon>
+
+<div class="text-xs text-center">{{ METRIC_TITLE[metric.id] }}</div>
+<div class="text-xs text-center mt-1">
+  {{ metric | metricValue : currencyCode : 'compareValue' }}
+</div>
+<div class="text-2xl font-medium absolute top-13">{{ metric | metricValue : currencyCode }}</div>
+<ng-container *ngIf="!loading">
+  <div
+    *ngIf="!isOneDaySelected"
+    [class.basik-50]="(metric | metricArrow) === 'zero'"
+    [class.text-red-100]="(metric | metricArrow) === 'down'"
+    class="text-green-100 absolute bottom-2 text-xs"
+  >
+    <span [innerHTML]="metric | metricDiff : timePeriodType"></span>&nbsp;
+  </div>
+</ng-container>
+
+<mat-menu #menu="matMenu" class="flex-col bg-white min-w-max px-5 py-2 rounded-md top-12 right-0 z-1 shadow">
+  <div>{{ METRIC_DESCRIPTION[metric.id] }}</div>
+</mat-menu>

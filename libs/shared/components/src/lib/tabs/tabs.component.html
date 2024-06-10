@@ -1,0 +1,19 @@
+<div
+  class="flex text-center max-xl:w-full relative max-xl:text-sm bg-blue-10 rounded-lg border-2 border-solid border-blue-10 whitespace-nowrap"
+>
+  <div
+    [selectedTabIndex]="selectedChipIndex"
+    [tabsElements]="tabsElements"
+    [parentElement]="elementRef.nativeElement"
+    class="absolute bg-white h-full rounded-md transition-all"
+    iaTabSelected
+  ></div>
+  <div
+    #tabs
+    (click)="onSelectTab(tab)"
+    *ngFor="let tab of tabs"
+    class="flex leading-4 items-center justify-center relative cursor-pointer min-2xl:px-10 py-2 w-1/2 rounded-md min-w-min"
+  >
+    {{ tab.name }}
+  </div>
+</div>

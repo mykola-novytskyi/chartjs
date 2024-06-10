@@ -1,0 +1,19 @@
+<div class="uppercase text-blue-100 text-sm mb-1">Payment systems</div>
+<div class="flex max-xl:flex-col items-center justify-center">
+  <div
+    *ngFor="let p of payments"
+    class="flex min-xs:w-87 w-full flex-col border-solid border-blue-10 max-xl:border-b min-xl:border-r-2 last:border-none max-xl:first:pb-5 pt-4 min-xl:px-19"
+  >
+    <div class="text-sm leading-6 font-semibold">{{ p.title }}</div>
+    <div class="text-xl leading-6 font-medium mt-4">{{ p.value | currency }}</div>
+
+    <ia-doughnut-chart
+      *ngIf="p.values.length"
+      [chartData]="p.values"
+      [doughnutChartData]="p.doughnutChartData"
+      [labels]="p.labels"
+      [type]="DoughnutChartType.Percentage"
+      class="flex mt-4"
+    />
+  </div>
+</div>

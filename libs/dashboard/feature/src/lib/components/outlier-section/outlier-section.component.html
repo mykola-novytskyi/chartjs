@@ -1,0 +1,23 @@
+<div class="uppercase text-blue-100 text-sm mb-5 min-xl:float-left">The biggest winners and losers</div>
+
+<div class="flex mb-6 justify-end">
+  <ia-tabs
+    (selected)="onSelectTab($event)"
+    [selectedTab]="selectedTab"
+    [tabs]="tabs"
+    class="w-full min-xl:w-75 min-2xl:w-96"
+  />
+</div>
+
+<div *ngIf="localBarChartData.datasets.length" class="flex relative w-full h-125 flex-col">
+  <div class="text-blue-100 text-sm min-xl:float-left">ClientId</div>
+  <canvas
+    [data]="localBarChartData"
+    [legend]="false"
+    [options]="barChartOptions"
+    [plugins]="chartPlugins"
+    [type]="'bar'"
+    baseChart
+  >
+  </canvas>
+</div>

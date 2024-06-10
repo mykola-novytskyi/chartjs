@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@chartjs/components": ["libs/shared/components/src/index.ts"],
+      "@chartjs/da": ["libs/dashboard/da/src/index.ts"],
+      "@chartjs/feature": ["libs/dashboard/feature/src/index.ts"],
+      "@chartjs/providers": ["libs/shared/providers/src/index.ts"],
+      "@chartjs/util": ["libs/shared/util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

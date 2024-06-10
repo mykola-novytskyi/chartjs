@@ -1,0 +1,109 @@
+<header
+  class="font-rubik flex bg-white px-6 items-center py-2 max-xl:px-4 justify-between h-16 sticky w-full z-1 top-0"
+>
+  <div class="flex flex-col items-center">
+    <div class="font-medium text-base">Dashboard</div>
+  </div>
+
+</header>
+
+<ia-ggr-section
+  [entities]="ggrFacade.ggr()"
+  [iaSpinner]="ggrFacade.loading()"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<ia-active-users-section
+  [iaSpinner]="activeUsersFacade.loading()"
+  [users]="activeUsersFacade.activeUsers()"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<ia-visitors-section
+  [entities]="visitorsFacade.visitors()"
+  [iaSpinner]="visitorsFacade.loading()"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<!--<ia-invited-friends-section-->
+<!--  [entities]="invitedFriendsFacade.invitedFriends()"-->
+<!--  [iaSpinner]="activeUsersFacade.loading()"-->
+<!--  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"-->
+<!--/>-->
+
+<ia-fdr-section
+  [entities]="fdrFacade.fdr()"
+  [iaSpinner]="fdrFacade.loading()"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<ia-deposits-section
+  (selectTab)="onSelectDepositType($event)"
+  [entities]="depositsFacade.deposits()"
+  [iaSpinner]="depositsFacade.loading()"
+  [selectedTab]="depositsFacade.currentType$ | async"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<ia-bets-by-product-section
+  (selectTab)="onSelectBetsProfitType($event)"
+  [entities]="betsByProductFacade.bets()"
+  [iaSpinner]="betsByProductFacade.loading()"
+  [selectedTab]="betsByProductFacade.currentType$ | async"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<ia-payment-performance-section
+  (selectTab)="onSelectPaymentPerformanceTab($event)"
+  [entities]="paymentPerformanceFacade.indicators()"
+  [iaSpinner]="paymentPerformanceFacade.loading()"
+  [selectedTab]="paymentPerformanceFacade.currentTab$ | async"
+  class="mt-2 py-6 px-4 block bg-white min-xl:pb-15"
+/>
+
+<!--<ia-bets-section-->
+<!--  (selectTab)="onSelectBetTab($event)"-->
+<!--  [bet]="betsFacade.bet()"-->
+<!--  [iaSpinner]="betsFacade.loading()"-->
+<!--  [selectedTab]="betsFacade.currentTab$ | async"-->
+<!--  class="mt-2 py-6 min-xl:pb-15 px-4 block bg-white"-->
+<!--/>-->
+
+<ia-bets-type-section
+  (selectTab)="onSelectBetsTab($event)"
+  [bet]="betsTypeFacade.currentBetType$ | async"
+  [iaSpinner]="betsTypeFacade.loading()"
+  [selectedTab]="betsTypeFacade.currentType$ | async"
+  class="mt-2 py-6 min-xl:pb-15 px-4 block bg-white"
+/>
+
+<ia-outlier-section
+  (selectTab)="onSelectOutlier($event)"
+  [iaSpinner]="outlierFacade.loading()"
+  [outliers]="outlierFacade.outliers()"
+  [selectedTab]="outlierFacade.currentTab$ | async"
+  class="mt-2 py-6 min-xl:pb-15 px-4 block bg-white"
+/>
+
+<ia-payment-systems-section
+  [iaSpinner]="paymentSystemsFacade.loading()"
+  [payment]="paymentSystemsFacade.payment()"
+  class="mt-2 py-6 px-4 min-xl:pb-15 block bg-white"
+/>
+
+<ia-deposit-and-withdrawal-section
+  [depositAndWithdrawal]="depositWithdrawalFacade.depositAndWithdrawal()"
+  [iaSpinner]="depositWithdrawalFacade.loading()"
+  class="mt-2 py-6 px-4 min-xl:pb-15 flex flex-col bg-white"
+/>
+
+<!--<ia-average-section-->
+<!--  (selectTab)="onSelectAverageTab($event)"-->
+<!--  [average]="averageFacade.average()"-->
+<!--  [data]="averageFacade.graphData()"-->
+<!--  [iaSpinner]="averageFacade.loading()"-->
+<!--  [selectedTab]="averageFacade.currentType$ | async"-->
+<!--  [totalAmount]="averageFacade.totalAmount()"-->
+<!--  [totalCount]="averageFacade.totalCount()"-->
+<!--  class="mt-2 py-6 px-4 min-xl:pb-15 block bg-white"-->
+<!--/>-->

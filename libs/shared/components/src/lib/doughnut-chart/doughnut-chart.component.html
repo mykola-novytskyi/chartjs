@@ -1,0 +1,27 @@
+<div class="flex items-center justify-center w-full">
+  <div class="w-30 h-30">
+    <canvas [data]="doughnutChartData" [options]="doughnutChartOptions" [type]="'doughnut'" baseChart> </canvas>
+  </div>
+  <div class="ml-4 w-full">
+    <div
+      (click)="onToggleLegend(index)"
+      *ngFor="let label of doughnutChartData.labels; let index = index"
+      class="text-sm gap-4 leading-6 flex justify-between cursor-pointer mb-1.5"
+    >
+      <div class="flex items-center">
+        <div
+          [style.background-color]="doughnutChartData?.datasets[0]?.backgroundColor?.[index]"
+          class="w-2 h-2 rounded-sm mr-2"
+        ></div>
+        <span [class.line-through]="hiddenLegends()[index]">{{ label }}</span>
+      </div>
+
+      <div *ngIf="type === DoughnutChartType.Currency" class="text-sm font-medium leading-6">
+        {{ chartData[index] | currency : 'USD' : 'symbol' : '1.0-2' }}
+      </div>
+      <div *ngIf="type === DoughnutChartType.Percentage" class="text-sm leading-6 text-basic-60">
+        {{ chartData[index] }}%
+      </div>
+    </div>
+  </div>
+</div>
